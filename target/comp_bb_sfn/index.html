@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Apresentação de slides</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+    </head>
+<body>
+    <div id="slides">
+        <div class="slide" style="position: relative; height:40vh; width:80vw">
+            <p>Este é o slide 1. Aqui está um gráfico de barras:</p>
+            <div id="chart1"></div>
+            <canvas id="pag1"></canvas>
+                <script>
+                    var ctx = document.getElementById("pag1");
+        
+                    var chartGraph = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"],
+                            datasets: [{
+                                label: "TAXA DE CLIQUES - 2017",
+                                data: [5,10,5,14,20,15,6,14,8,12,15,5],
+                                borderWidth: 6,
+                                bordercolor: 'rgba(77,166,253,0.85)',
+                                backgroundcolor: 'transparent'
+                            }]
+                        }
+                    })        
+                </script>
+        </div>
+        <div class="slide" style="position: relative; height:40vh; width:80vw">
+            <p>Este é o slide 2. Aqui está um gráfico de barras:</p>
+            <div id="chart2"></div>
+            <canvas id="pag2"></canvas>
+                <script>
+                    var ctx = document.getElementById("pag2");
+        
+                    var chartGraph = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"],
+                            datasets: [{
+                                label: "TAXA DE CLIQUES - 2017",
+                                data: [5,10,5,14,20,15,6,14,8,12,15,5],
+                                borderWidth: 6,
+                                bordercolor: 'rgba(77,166,253,0.85)',
+                                backgroundcolor: 'transparent'
+                            }]
+                        }
+                    })        
+                </script>
+        </div>
+        <div class="slide" style="position: relative; height:40vh; width:80vw">
+            <p>Este é o slide 3. Aqui está um gráfico de barras:</p>
+            <div id="chart3"></div>
+            <canvas id="pag3"></canvas>
+                <script>
+                    var ctx = document.getElementById("pag3");
+        
+                    var chartGraph = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"],
+                            datasets: [{
+                                label: "TAXA DE CLIQUES - 2017",
+                                data: [5,10,5,14,20,15,6,14,8,12,15,5],
+                                borderWidth: 6,
+                                bordercolor: 'rgba(77,166,253,0.85)',
+                                backgroundcolor: 'transparent'
+                            }]
+                        }
+                    })        
+                </script>
+        </div>
+    </div>
+
+    <button id="next">Próximo slide</button>
+    <button id="previous">Slide anterior</button>
+
+    <script>
+        var slides = $(".slide");
+        var currentSlide = 0;
+
+        $("#next").click(function() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides.eq(currentSlide).fadeIn(1000).siblings().fadeOut(1000);
+        });
+
+        $("#previous").click(function() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        slides.eq(currentSlide).fadeIn(1000).siblings().fadeOut(1000);
+        });
+
+        $(document).ready(function() {
+        slides.eq(0).fadeIn(1000);
+        });
+    </script>
+</body>
+</html>
